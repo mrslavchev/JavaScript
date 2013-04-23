@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var num = 34;
+            var sqrt = Math.sqrt(num);
+            var div = 2;
+            var prime = true;
+            while (prime && (div <= sqrt)){
+                if (num % div == 0) {
+                    prime = false;
+                }
+                div++;
+            }
+            jsConsole.writeLine("Is " + num + " prime number?");
+            jsConsole.writeLine(prime);
+        </script>
+    </div>
+</body>
+</html>

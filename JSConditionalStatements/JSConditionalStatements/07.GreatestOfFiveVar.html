@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-firstNum">First number: </label>
+	<input type="text" id="tb-firstNum" />
+    <br />
+    <label for="tb-secondNum">Second number: </label>
+	<input type="text" id="tb-secondNum" />
+    <br />
+    <label for="tb-thirdNum">Third number: </label>
+	<input type="text" id="tb-thirdNum" />
+    <br />
+    <label for="tb-fourthNum">Fourth number: </label>
+	<input type="text" id="tb-fourthNum"/>
+    <br />
+    <label for="tb-fifthNum">Fifth number: </label>
+	<input type="text" id="tb-fifthNum" />
+    <br />
+	<a href="#" onclick="onCalcBtnClick()">Calc!</a>
+	<div id="js-console">
+	</div>
+    <script src="scripts/js-console.js">	  
+    </script>
+	<script>
+	    //Write a script that finds the greatest of given 5 variables.
+
+	    function onCalcBtnClick() {
+	        var arr = new Array(5);
+
+	        arr[0] = jsConsole.readFloat("#tb-firstNum");
+	        arr[1] = jsConsole.readFloat("#tb-secondNum");
+	        arr[2] = jsConsole.readFloat("#tb-thirdNum");
+	        arr[3] = jsConsole.readFloat("#tb-fourthNum");
+	        arr[4] = jsConsole.readFloat("#tb-fifthNum");
+
+	        var maxVar = arr[0];
+
+	        for (var i = 1; i < arr.length; i++) {
+	            if (arr[i] > maxVar) {
+	                maxVar = arr[i]
+	            }
+	        }
+
+	        jsConsole.writeLine("Biggest of all is: " + maxVar)
+	    }
+
+	</script>
+</body>
+</html>

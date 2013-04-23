@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var num = 7;
+            var divBySeven = (num % 7) == 0;
+            var divByFive = (num % 5) == 0;
+            if (divByFive && divBySeven) {
+                jsConsole.writeLine(num + " is divisable by 5 and 7")
+            }
+
+            else {
+                jsConsole.writeLine(num + " isn't divisable by 5 and 7")
+            }
+        </script>
+    </div>
+</body>
+</html>

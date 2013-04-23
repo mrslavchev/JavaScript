@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+   <label for="tb-firstNum">First number: </label>
+	<input type="text" id="tb-firstNum" />
+    <label for="tb-secondNum">Second number: </label>
+	<input type="text" id="tb-secondNum" />
+    <label for="tb-thirdNum">Third number: </label>
+	<input type="text" id="tb-thirdNum" />
+	<a href="#" onclick="onSolveBtnClick()">Solve</a>
+	<div id="js-console">
+	</div>
+    <script src="scripts/js-console.js">	  
+    </script>
+	<script>
+	   //Write a script that enters the coefficients a, b and c of a quadratic equation
+	   //a*x2 + b*x + c = 0
+
+	    function onSolveBtnClick() {
+
+	        var a = jsConsole.readFloat("#tb-firstNum");
+	        var b = jsConsole.readFloat("#tb-secondNum");
+	        var c = jsConsole.readFloat("#tb-thirdNum");
+
+	        var x;
+	        var x1;
+	        var x2;
+	        var discriminant = ((b * b) - 4 * a * c);
+
+
+	        if (a == 0) {
+	            jsConsole.write("The equation is linear. Has root: ");
+	            jsConsole.writeLine((-c) / b);
+	        }
+	        else if (discriminant == 0) {
+	            x = ((-b) / (2 * a));
+	            Console.Write("The equation has one root x1=x2=");
+	            Console.WriteLine(x);
+	        }
+	        else if (discriminant > 0) {
+	            x1 = ((-b) + Math.sqrt(discriminant)) / (2 * a);
+	            x2 = ((-b) - Math.sqrt(discriminant)) / (2 * a);
+	            jsConsole.writeLine("The equation has roots x1= " + x1.toFixed(3) + ", x2= " + x2.toFixed(3));
+	        }
+	        else {
+	            jsConsole.writeLine("Equation has no real roots!");
+	        }
+	    }
+
+	</script>
+</body>
+</html>

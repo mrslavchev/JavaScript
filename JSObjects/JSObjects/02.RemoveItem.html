@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Remove Item</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <!--Write a function that removes all elements with a given value
+Attach it to the array class
+Read about prototype and how to attach methods-->
+        <script>
+            Array.prototype.remove = function remove (segment) {  //implementing the prototype
+                var newArray = [];
+                var i;
+                for (var i = 0; i < this.length; i++) { //we push all elements that differ into a new array
+                    if (this[i] != segment) {
+                        newArray.push(this[i]);
+                    }
+
+                }
+               return newArray;
+            }
+
+            var myArray = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+            var refactArray = myArray.remove(1); //using it
+            jsConsole.writeLine(refactArray);  //print the result
+        </script>
+    </div>
+</body>
+</html>

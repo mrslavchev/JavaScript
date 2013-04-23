@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bigger than neighbours</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a function that checks if the element
+         at given position in given array of integers
+         is bigger than its two neighbors (when such exist).-->
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var myArray = [1, 2, 4, 1, 2, 3, 5, 1];
+            var element = 3;
+            function compareToNeighbours(myArray, element) {  //the function
+                var isInRange = ((element > 0) && (element < myArray.length-1));  //here we chech if the given position
+                var output;                                                       //is in the range of the array
+                if (isInRange) {                                                  //this must be off its edges 0 < element > lenght-2
+                    if ((myArray[element] > myArray[element-1]) && (myArray[element] > myArray[element +1])) {
+                        output = true;
+                    }
+                    else {
+                        output = false;
+                    }
+                }
+                else {
+                    output = jsConsole.writeLine("Number is negative or has no neighbours, please try another");
+                }
+                return output;
+            }
+            jsConsole.writeLine("Is it bigger than it's neighbours: ");
+            jsConsole.writeLine(compareToNeighbours(myArray, element));
+        </script>
+    </div>
+</body>
+</html>

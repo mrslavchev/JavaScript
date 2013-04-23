@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Planar Coordinate System</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <!-- Write functions for working with shapes in  standard Planar coordinate system
+Points are represented by coordinates P(X, Y)
+Lines are represented by two points, marking their beginning and ending
+L(P1(X1,Y1),P2(X2,Y2))
+Calculate the distance between two points
+Check if three segment lines can form a triangle-->
+        <script src="js-console.js"></script>
+        <script>
+            var point =function point(x, y) {
+                return {
+                    x: x,
+                    y: y,
+                    toString: function () { return '(' + this.x + "," +this.y + ')'; }
+                }  //returns json object point
+            }
+
+            function makeLine(firstPoint, secondPoint) {
+                return {
+                    a: firstPoint,
+                    b: secondPoint,
+                    toString: function () { return 'P1' + this.a + 'P2' + this.b }
+                }                    //returns json object line, consisting 2 points
+            }
+
+            function calcLength(object) {
+                return Math.sqrt(Math.pow((object.a.x - object.b.x), 2) + Math.pow((object.a.y - object.b.y), 2));
+            }//standart func for calc distance in 2D http://www.mathwarehouse.com/algebra/distance_formula/
+
+            function formTriangle(firstLine, secondLine, thirdLine) {
+                if (((firstLine + secondLine) > thirdLine) && ((secondLine + thirdLine) > firstLine)   //checking if they could form triangle 
+                    && ((thirdLine + firstLine) > secondLine)) {
+                    return "Can form triangle";
+                }
+                else {
+                    return"Can not form triangle";
+                }
+            }
+            var a = new point(10, 1);  //instance of a point
+            var b = new point(-2, 11);
+            var c = new point(13, -5);
+            var d = new point(-8, 1);
+            var e = new point(-5, 1);
+            var f = new point(-1, 1);
+            var lineAB = new makeLine(a, b); // instance of a line
+            var lineCD = new makeLine(c, d);
+            var lineEF = new makeLine(e, f);
+            jsConsole.writeLine(calcLength(lineAB));
+            jsConsole.writeLine(calcLength(lineCD))
+            jsConsole.writeLine(calcLength(lineEF))// calculating line's length
+            jsConsole.writeLine(formTriangle(calcLength(lineAB), calcLength(lineCD), calcLength(lineEF)));
+
+
+            
+        </script>
+    </div>
+</body>
+</html>

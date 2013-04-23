@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-firstNum">First number: </label>
+	<input type="text" id="tb-firstNum" />
+    <label for="tb-secondNum">Second number: </label>
+	<input type="text" id="tb-secondNum" />
+    <label for="tb-thirdNum">Third number: </label>
+	<input type="text" id="tb-thirdNum" />
+	<a href="#" onclick="onSignBtnClick()">Check</a>
+	<div id="js-console">
+	</div>
+    <script src="scripts/js-console.js">	  
+    </script>
+	<script>
+	   //Write a script that shows the sign (+ or -) of the product of three real numbers 
+	   //without calculating it. Use a sequence of if statements
+	    function onSignBtnClick() {
+
+	        var firstNumber = jsConsole.readFloat("#tb-firstNum");
+	        var secondNumber = jsConsole.readFloat("#tb-secondNum");
+	        var thirdNumber = jsConsole.readFloat("#tb-thirdNum");
+	        var signCounter = 0;
+
+	        if (firstNumber < 0) {
+	            signCounter++;
+	        }
+	        if (secondNumber < 0) {
+	            signCounter++;
+	        }
+	        if (thirdNumber < 0) {
+	            signCounter++;
+	        }
+
+	        if ((signCounter == 1) || (signCounter == 3)) {
+	            jsConsole.writeLine("Product sign is \"-\"");
+	        }
+	        else {
+	            jsConsole.writeLine("Product sign is \"+\"");
+	        }
+	    }
+
+	</script>
+</body>
+</html>

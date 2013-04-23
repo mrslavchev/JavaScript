@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-number">Digit: </label>
+	<input type="text" id="tb-number" />
+	<a href="#" onclick="onDigitBtnClick()">Calculate!</a>
+	<div id="js-console">
+	</div>
+    <script src="scripts/js-console.js">	  
+    </script>
+	<script>
+	    //Write script that asks for a digit and depending on the input 
+        //shows the name of that digit (in English) using a switch statement.
+
+	    function onDigitBtnClick() {
+
+	        var number = jsConsole.readInteger("#tb-number");
+	        var digit;
+
+	        switch (number) {
+	            case 1: digit = "One"; break;
+	            case 2: digit = "Two"; break;
+	            case 3: digit = "Three"; break;
+	            case 4: digit = "Four"; break;
+	            case 5: digit = "Five"; break;
+	            case 6: digit = "Six"; break;
+	            case 7: digit = "Seven"; break;
+	            case 8: digit = "Eight"; break;
+	            case 9: digit = "Nine"; break;
+	            case 0: digit = "Zero"; break;
+	            default:
+	                digit = "Not a digit"; break;
+	        }
+	        jsConsole.writeLine(digit);
+	    }
+
+	</script>
+</body>
+</html>

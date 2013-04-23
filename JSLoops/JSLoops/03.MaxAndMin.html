@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Max and min numbers</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a script that finds the max and min number from a sequence of numbers-->
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var numberArray = [1, 2, 5, 18, 1234, -234, -543, 292];
+            var sortedArr = numberArray.sort(function (a, b) { return a - b;});
+            var min = sortedArr[0];
+            var max = sortedArr.length - 1;
+            for (var num in sortedArr) {
+                jsConsole.writeLine(sortedArr[num])
+            }
+            jsConsole.writeLine(min + " " + sortedArr[max]);
+        </script>
+    </div>
+</body>
+</html>

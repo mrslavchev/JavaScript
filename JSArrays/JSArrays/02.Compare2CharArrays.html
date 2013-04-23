@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Char arrays</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="input">
+    <div class="number">
+        <label for="first">Input the first char array: </label>
+        <input type="text" id="first"/>
+    </div>	
+    <div class="number">	
+        <label for="second">Input the second char array: </label>
+        <input type="text" id="second"/>
+    </div>
+    <div id="button">
+        <a href="#" onclick="onButtonClick()">Calculate</a>
+    </div>
+    </div>
+    <div id="js-console">
+    </div>
+<script src="scripts/js-console.js">	
+</script>
+
+    <script>
+        function onButtonClick() {
+            var arr1 = document.getElementById("first").value;
+            var arr2 = document.getElementById("second").value;
+            var firstLen = arr1.length;
+            var secondLen = arr2.length;
+            if (arr1 === arr2) {
+                jsConsole.writeLine("The arrays are equal: ")
+                return;
+                for (var i = 0; i < firstLen; i++) {
+                    if (arr1[i] != arr2[i]) {
+                        break;
+                    }
+                }
+            }
+            else {
+                jsConsole.writeLine("The two arrays are with different lenght!");
+            }
+        }
+
+    </script>
+</body>
+</html>

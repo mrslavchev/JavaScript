@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var n = 120;
+            var p = 4;
+            var mask = 1 << p;
+            var nAndMask = n & mask;
+            var bit = nAndMask >> p;
+            var result = (bit === 1);
+            if (result) {
+                jsConsole.writeLine("The third bit of the number is 1");
+            }
+            else {
+                jsConsole.writeLine("The third bit of the number is 0");
+            }
+        </script>
+    </div>
+</body>
+</html>

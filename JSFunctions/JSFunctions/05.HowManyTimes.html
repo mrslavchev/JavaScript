@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Most frequent number in array</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <!--Write a function that counts how many times given number appears in given array. 
+            Write a test function to check if the function is working correctly.-->
+
+        <script src="js-console.js"></script>
+        <script>
+            var myArray = [4, 1,4, 2, 4, 14, 4, 4, 1, 4, 1, 2, 2, 1, 2, 2]; //using hardcoded array, its easier
+            myArray.sort(); //sorting the array 
+            function mostFrqNum(value) {
+                var currentCount = 1; 
+                var bestCount = 1;
+                var repeatedNum = 0;
+                for (var i = 0; i < myArray.length; i++) { 
+                    if (myArray[i] == myArray[i + 1]) { // we check if two neighbour elements are equal
+                        currentCount++;                 // if they are, we increase the currentcount
+                        if (currentCount > bestCount) { // if current count exceeds bestcount
+                            bestCount = currentCount;   // we found a better sequence
+                            repeatedNum = myArray[i];
+                        }
+                    }
+                    else {
+                        currentCount = 1; //resetting current count
+                    }
+                }
+                var output = repeatedNum + " " + bestCount + " times";
+                return output;
+            }
+            // i can't write a unit test function, sorry
+            jsConsole.writeLine(mostFrqNum(myArray));
+        </script>
+    </div>
+</body>
+</html>

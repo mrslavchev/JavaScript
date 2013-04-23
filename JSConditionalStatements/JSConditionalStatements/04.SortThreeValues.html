@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-firstNum">First number: </label>
+	<input type="text" id="tb-firstNum" />
+    <label for="tb-secondNum">Second number: </label>
+	<input type="text" id="tb-secondNum" />
+    <label for="tb-thirdNum">Third number: </label>
+	<input type="text" id="tb-thirdNum" />
+	<a href="#" onclick="onSignBtnClick()">Check</a>
+	<div id="js-console">
+	</div>
+    <script src="scripts/js-console.js">	  
+    </script>
+	<script>
+	    //Sort 3 real values in descending order using nested if statements
+	    function onSignBtnClick() {
+
+	        var firstNumber = jsConsole.readFloat("#tb-firstNum");
+	        var secondNumber = jsConsole.readFloat("#tb-secondNum");
+	        var thirdNumber = jsConsole.readFloat("#tb-thirdNum");
+
+	        if (thirdNumber > secondNumber) {
+	            thirdNumber += secondNumber;
+	            secondNumber = thirdNumber - secondNumber;
+	            thirdNumber -= secondNumber;
+
+	            if (secondNumber > firstNumber) {
+	                secondNumber += firstNumber;
+	                firstNumber = secondNumber - firstNumber;
+	                secondNumber -= firstNumber;
+
+	                if (secondNumber < thirdNumber) {
+	                    thirdNumber += secondNumber;
+	                    secondNumber = thirdNumber - secondNumber;
+	                    thirdNumber -= secondNumber;
+	                }
+	            }
+	        }
+	        else if (secondNumber > firstNumber) {
+	            secondNumber += firstNumber;
+	            firstNumber = secondNumber - firstNumber;
+	            secondNumber -= firstNumber;
+
+	            if (secondNumber < thirdNumber) {
+	                thirdNumber += secondNumber;
+	                secondNumber = thirdNumber - secondNumber;
+	                thirdNumber -= secondNumber;
+	            }
+
+
+	        }
+
+	        jsConsole.writeLine(firstNumber + ", " + secondNumber + ", " + thirdNumber)
+	    }
+
+	</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Last Digit</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--
+        Write a function that returns the last digit of given integer
+         as an English word. Examples: 512  "two", 1024  "four", 12309  "nine"-->
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var number = 12234;
+            function returnLastDigit(number) {
+                var stringRepr = number.toLocaleString();
+                var lastDigit = stringRepr.slice(-1);
+                switch (lastDigit) {
+                    case "1": lastDigit = "One"; break;
+                    case "2": lastDigit = "Two"; break;
+                    case "3": lastDigit = "Three"; break;
+                    case "4": lastDigit = "Four"; break;
+                    case "5": lastDigit = "Five"; break;
+                    case "6": lastDigit = "Six"; break;
+                    case "7": lastDigit = "Seven"; break;
+                    case "8": lastDigit = "Eight"; break;
+                    case "9": lastDigit = "Nine"; break;
+                    default: lastDigit = "Worng input, please try again!"; break;
+                }
+                return lastDigit;
+            }
+            jsConsole.writeLine(returnLastDigit(number));
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Replacing</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <!--Write a function that replaces non breaking white-spaces in a text with &nbsp;-->
+        <script src="js-console.js"></script>
+        <script>
+            var input = "This is a simple text";
+            function replaceWhiteSpaces(value) {
+                var newStr = value.replace(/ /g, "&amp;nbsp;"); // we use  &amp; to replace '&' otherwise it inserts space in the html
+                return newStr;                                  
+            }
+            jsConsole.writeLine(replaceWhiteSpaces(input));
+        </script>
+    </div>
+</body>
+</html>

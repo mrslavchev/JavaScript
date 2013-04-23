@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var x =1;
+            var y =2;
+            var radius = 5;
+            var z = (x * x + y * y);
+            var pit = Math.sqrt(z);
+            var within = (pit <= radius);
+            if (within) {
+                jsConsole.writeLine("The point is within the circle");
+            }
+            else {
+                jsConsole.writeLine("The point is out of the circle");
+            }
+        </script>
+    </div>
+</body>
+</html>

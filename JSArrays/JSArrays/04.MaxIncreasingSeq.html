@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Find max increasing sequence</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+ 
+     <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+ 
+    <div id="input-div">
+        <h3>To find the maximal increasing sequence of elements in an array.<br />
+            Please input array values separated by a single white space.</h3>
+       
+        <div class="input">
+            <label for="inputArr">Your array:</label>
+            <input type="text" id="inputArr" />
+        </div>
+ 
+        <div id="input-button">
+            <input type="button" onclick="findIncreasingEl()" value="Show increasing sequance"/>
+        </div>
+    </div>
+ 
+    <div id="console"></div>
+    <script src="scripts/js-console.js"></script>
+   
+    <script>
+        function findIncreasingEl() {
+            var input = document.getElementById("inputArr").value;
+            var myArr = input.split(' ');
+
+            var sequence = "";
+
+            for (var index = 0; index < myArr.length - 1; index++) {
+
+                if (myArr[index] < myArr[index + 1]) {
+
+
+                    sequence += myArr[index];
+
+                }
+
+                if ((myArr[index] > myArr[index + 1]) && sequence.length != 0) { //check for the last sequence element
+
+                    sequence += myArr[index];
+                    break;
+                }
+
+            }
+
+            jsConsole.writeLine("The maximal increasing sequence of elements is: " + sequence);
+
+
+            jsConsole.writeLine();
+
+        }
+    </script>
+ 
+</body>
+</html>

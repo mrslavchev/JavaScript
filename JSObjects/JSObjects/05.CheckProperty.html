@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Check for property</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var str = "I'm String";
+            var num = 5;
+            var arr = [1, 2, 3, 4, 5];
+            function createObj(name, age) {
+                return {
+                    name: name,
+                    age: age,
+                    toString: function () { return this.name + " " + this.age }
+                }
+            }
+            var pesho = new createObj("Pesho", 13)
+            function findProp(object,value){
+                if (value in object ) {
+                    return true;
+                }
+            }
+            jsConsole.writeLine(findProp(str, length));
+        </script>
+    </div>
+</body>
+</html>

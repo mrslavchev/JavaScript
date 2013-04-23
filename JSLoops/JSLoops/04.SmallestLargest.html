@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Smallest and largest objects</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <!--Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects-->
+        <script src="js-console.js"></script>
+        <script>
+                var first;
+                var last;
+                var i = 0;
+                var array = [document, window, navigator]
+                for (; i < 3; i++) {
+                    first = 'zz';
+                    last = 'AA';
+                    for (var property in array[i]) {
+                        if (property < first)
+                            first = property;
+                        if (property > last)
+                            last = property;
+                    }
+                    jsConsole.writeLine('The "smallest" object in ' + array[i] + ' is ' + first);
+                    jsConsole.writeLine('The "biggest" object in ' + array[i] + ' is ' + last);
+                }
+        </script>
+    </div>
+</body>
+</html>

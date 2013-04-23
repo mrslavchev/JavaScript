@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-number">First number: </label>
+	<input type="text" id="tb-number" />
+	<a href="#" onclick="onToTextBtnClick()">Solve</a>
+	<div id="js-console">
+	</div>
+    <script src="scripts/js-console.js">	  
+    </script>
+	<script>
+	    //Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation. Examples:
+	    //0  "Zero"
+	    //273  "Two hundred seventy three"
+
+	    function onToTextBtnClick() {
+
+	        var number = jsConsole.read("#tb-number")
+	        var num = parseInt(number)
+	        var numberText;
+
+	        var array = new Array(number.length)
+
+	        for (var index = 0; index < number.length; index++) {
+	            array[index] = num % 10;
+	            num = parseInt((num / 10));
+	            if (index == 0) {
+	                switch (array[index]) {
+	                    case 0:
+	                        numberText = "zero"; break;
+	                    case 1:
+	                        numberText = "one"; break;
+	                    case 2:
+	                        numberText = "two"; break;
+	                    case 3:
+	                        numberText = "three"; break;
+	                    case 4:
+	                        numberText = "four"; break;
+	                    case 5:
+	                        numberText = "five"; break;
+	                    case 6:
+	                        numberText = "six"; break;
+	                    case 7:
+	                        numberText = "seven"; break;
+	                    case 8:
+	                        numberText = "eight"; break;
+	                    case 9:
+	                        numberText = "nine"; break;
+	                }
+	            }
+	            if (index == 1) {
+	                if (array[index] == 1) {
+	                    switch (array[0]) {
+	                        case 0:
+	                            numberText = "ten"; break;
+	                        case 1:
+	                            numberText = "eleven"; break;
+	                        case 2:
+	                            numberText = "twelve"; break;
+	                        case 3:
+	                            numberText = "thirteen"; break;
+	                        case 4:
+	                            numberText = "fourteen"; break;
+	                        case 5:
+	                            numberText = "fifteen"; break;
+	                        case 6:
+	                            numberText = "sixteen"; break;
+	                        case 7:
+	                            numberText = "seventeen"; break;
+	                        case 8:
+	                            numberText = "eighteen"; break;
+	                        case 9:
+	                            numberText = "nineteen"; break;
+	                    }
+	                }
+	                else {
+	                    switch (array[index]) {
+	                        case 2:
+	                            numberText = "twenty" + " " + numberText; break;
+	                        case 3:
+	                            numberText = "thirty" + " " + numberText; break;
+	                        case 4:
+	                            numberText = "forty" + " " + numberText; break;
+	                        case 5:
+	                            numberText = "fifty" + " " + numberText; break;
+	                        case 6:
+	                            numberText = "sixty" + " " + numberText; break;
+	                        case 7:
+	                            numberText = "seventy" + " " + numberText; break;
+	                        case 8:
+	                            numberText = "eighty" + " " + numberText; break;
+	                        case 9:
+	                            numberText = "ninety" + " " + numberText; break;
+	                        case 0:
+	                            if (number.length == 3) {
+	                                numberText = "and" + " " + numberText;
+	                            }
+	                            else {
+	                                numberText = "Incorrect input!";
+	                            }
+	                            break;
+
+	                    }
+	                }
+	            }
+	            if (index == 2) {
+	                if ((array[0] == 0) && (array[1] == 0)) {
+	                    numberText = "";
+	                }
+	                else if (array[1] == 1) {
+	                    numberText = "and" + " " + numberText;
+	                }
+	                switch (array[index]) {
+
+	                    case 1:
+	                        numberText = "one hundred" + " " + numberText; break;
+	                    case 2:
+	                        numberText = "two hundred" + " " + numberText; break;
+	                    case 3:
+	                        numberText = "three hundred" + " " + numberText; break;
+	                    case 4:
+	                        numberText = "four hundred" + " " + numberText; break;
+	                    case 5:
+	                        numberText = "five hundred" + " " + numberText; break;
+	                    case 6:
+	                        numberText = "six hundred" + " " + numberText; break;
+	                    case 7:
+	                        numberText = "seven hundred" + " " + numberText; break;
+	                    case 8:
+	                        numberText = "eight hundred" + " " + numberText; break;
+	                    case 9:
+	                        numberText = "nine hundred" + " " + numberText; break;
+	                    case 0:
+	                        numberText = "Incorrect input!"; break;
+	                }
+	            }
+	        }
+	        numberText = numberText.charAt(0).toUpperCase() + numberText.slice(1);
+	        jsConsole.writeLine(numberText);
+	    }
+
+	</script>
+</body>
+</html>

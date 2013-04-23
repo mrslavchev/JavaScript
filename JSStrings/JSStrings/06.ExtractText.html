@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Extract Text</title>
+    <link href="js-console.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console">
+        <script src="js-console.js"></script>
+        <script>
+            var htmlText = "<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>";
+            function extractText(value) {
+                var output = value.replace(/(<([^>]+)>)/ig,"");
+                return output;
+            }
+            jsConsole.writeLine(extractText(htmlText));
+        </script>
+    </div>
+</body>
+</html>
