@@ -1,0 +1,15 @@
+label{
+    float:left;
+    clear:both;
+}
+input{
+    float:left;
+    clear:right;
+}
+textarea{
+    float:left;
+    clear:both;
+}
+#fontColor{
+    margin-left:50px;
+}]
