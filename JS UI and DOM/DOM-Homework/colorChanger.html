@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Color changer.</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <!--Crate a function that gets a the value of <input type="color"> and sets the background of the body to this value-->
+        <label for="colorPicker">Change the color of the body using this color picker.</label>
+        <input type="color" id = 'colorPicker' onchange = applyColor()>
+        <script>
+        	
+
+        	function applyColor(){
+        		var color = document.getElementById('colorPicker').value;
+        		var body = document.getElementsByTagName("body");
+        		body[0].style.background = color;
+        	}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Content of text.</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+    	<!--Create a function that gets the value of <input type="text"> ands prints its value to the console-->
+    	<input type="text" id = 'input'>
+    	<button onClick = logValue()>Click me</button>
+    	<script>
+    		var inputElement = document.getElementById('input');
+
+    		function logValue(){
+    			console.log(inputElement.value);
+    		}
+    	</script>
+    </body>
+</html>

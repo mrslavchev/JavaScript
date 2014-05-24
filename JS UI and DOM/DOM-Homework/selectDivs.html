@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Select divs.</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    	<!--Write a script that selects all the div nodes that are directly inside other div elements
+			Create a function using querySelectorAll()
+			Create a function using getElementsByTagName()-->
+			<h1>Results are logged in console.</h1>
+        <div>Div without inner div</div>
+        <div>
+        	<div id = 'div1'>Div inside div.</div>
+        </div>
+        <div>
+        	<p>Paragraph inside div.</p>
+        </div>
+        <div>
+        	<div id = 'div2'>Div inside div.</div>
+        </div>
+        <div><span>Span inside div</span></div>
+        <div>
+        	<p>Paragraph in div.</p>
+        	<div>Div inside, not direct.</div>
+        </div>
+        <div>
+        	<div id = 'div3'>Div inside div.</div>
+        </div>
+
+        <script>
+        	// First by using query selector all.
+        	function findBySelector(selector){
+        		return document.querySelectorAll(selector);
+        	}
+
+        	// Then by using select element by tag name.
+        	function findByTagName(tagName){
+        		var selectedDivs = document.getElementsByTagName(tagName);
+        		var divsInsideDivs = [];
+        		for (var i = 0; i < selectedDivs.length; i++) {
+        			if (selectedDivs[i].parentNode.nodeName == 'DIV' && 
+        				selectedDivs[i].previousElementSibling === null) {
+        				divsInsideDivs.push(selectedDivs[i]);
+        			}
+        		};
+
+        		return divsInsideDivs;
+        	}
+        	
+        	console.log('By selector:');
+        	console.log(findBySelector("div>div:first-child"));
+        	console.log('By tagname:');
+        	console.log(findByTagName('div'));
+        </script>
+    </body>
+</html>
