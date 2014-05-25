@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Create a tag cloud:
+			Visualize a string of tags (strings) in a given container
+			By given minFontSize and maxFontSize, generate the tags with different font-size, depending on the number of occurrences-->
+    </head>
+    <body>
+		<div id="container"></div>
+		<script>
+			// Some styling to the container.
+			var container = document.getElementById('container');
+			container.style.border = '1px solid black';
+			container.style.width = '400px';
+			container.style.textWrap = 'normal';
+			var tags = ["cms", "javascript", "js", 
+						"ASP.NET MVC", ".net", ".net", "css", 
+						"wordpress", "xaml", "js", "http", "web", 
+						"asp.net", "asp.net MVC", "ASP.NET MVC", 
+						"wp", "javascript", "js", "cms", "html", 
+						"javascript", "http", "http", "CMS"];		
+
+			/*Returns a dictionary of key = tag and value = repetitions.*/
+			function getUniqueTags(tagCloud){
+				var output = [];
+				for (var i = 0; i < tags.length; i++) {
+					if (output[tags[i]] === undefined) {
+						output[tags[i]] = 1;
+					}
+					else{
+						output[tags[i]]++;
+					};
+				};
+				
+				return output;
+			}
+
+			/*Adds the tags to an element and applying different font-size,
+			depending on repeatability.*/
+			function pushTagsInElement(element, tags){
+				var keys = Object.keys(tags);
+				for (var i = 0; i < keys.length; i++) {
+					var span = document.createElement('span');
+					span.innerHTML = keys[i];
+					span.style.display = 'inline-block';
+					span.style.margin = '5px 5px';
+					span.style.fontSize = (tags[keys[i]] * 1.2) + 'em';
+					element.appendChild(span);
+				};
+			}
+
+			var uniqueTags = getUniqueTags(tags);
+			pushTagsInElement(container, uniqueTags);
+		</script>
+    </body>
+</html>
