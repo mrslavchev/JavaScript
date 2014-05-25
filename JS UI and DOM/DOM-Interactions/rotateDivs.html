@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Write a script that creates 5 div elements and moves them in circular path with interval of 100 milliseconds-->
+    </head>
+    <body>
+       <div id="moveMe" class="circle"></div>
+       <div id="moveMe2" class="circle"></div>
+       <div id="moveMe3" class="circle"></div>
+       <div id="moveMe4" class="circle"></div>
+       <div id="moveMe5" class="circle"></div>
+       <style>
+            .circle{
+                width:50px;
+                height:50px;
+                display:block;
+                border-radius:50px;
+                -moz-border-radius:50px;
+                -webkit-border-radius:50px;
+                -khtml-border-radius:50px;
+                color:#fff;
+                background-color:#b9c1de;
+                }
+       </style>
+
+       <script>
+            var RotateElement = (function() {
+    
+                function getPosition(settings, ellapsedTime) {
+                    var angle = getAngle(settings, ellapsedTime);
+                    return {
+                        x: Math.round(settings.center.x + settings.radius * Math.cos(angle)),
+                        y: Math.round(settings.center.y + settings.radius * Math.sin(angle))
+                    };
+                }
+        
+                function getAngle(settings, ellapsedTime) {
+                return ellapsedTime / settings.interval * 2 * Math.PI * settings.direction - settings.startPositionRad;
+                }
+    
+                function start(id, settings) {
+                    var el = document.getElementById(id),
+                        startTime = (new Date()).getTime(),
+                        width = el.offsetWidth,
+                        height = el.offsetHeight;
+                    if(el['#rev:tm'] !== null) stop(id);
+                    el.style.position = settings.cssPosition || 'absolute';
+                        if(!settings.startPositionRad) settings.startPositionRad = settings.startPositionDeg / 180 * Math.PI;
+                    el['#rev:tm'] = setInterval(function() {
+                        var pos = getPosition(settings, (new Date()).getTime() - startTime);
+                        el.style.left = (pos.x - Math.round(width / 2)) + 'px';
+                        el.style.top = (pos.y - Math.round(height / 2)) + 'px';
+                    }, settings.updateInterval);
+                        if(settings.iterations > -1) setTimeout(function() {
+                        stop(id);
+                    }, settings.iterations * settings.interval);
+                }
+    
+                function stop(id) {
+                    var el = document.getElementById(id);
+                    if(el['#rev:tm'] === null) return;
+                    clearInterval(el['#rev:tm']);
+                    el['#rev:tm'] = null;
+                }
+    
+                return {
+                    start: start,
+                    stop: stop
+                };
+    
+            })();
+
+            RotateElement.start('moveMe', {
+                radius: 150,
+                center: { x: 300, y: 400 },
+                // time in milliseconds for one revolution
+                interval: 1000,
+                // direction = 1 for clockwise, -1 for counterclockwise
+                direction: 1,
+                // number of times to animate the revolution (-1 for infinite)
+                iterations: -1,
+                // startPosition can be a degree angle
+                // (0 = right, 90 = top, 180 = left, 270 = bottom)
+                startPositionDeg: 0,
+                // how often (in milliseconds) the position of the
+                // circle should be attempted to be updated
+                updateInterval: 50
+            });
+
+            RotateElement.start('moveMe2', {
+                radius: 150,
+                center: { x: 300, y: 400 },
+                // time in milliseconds for one revolution
+                interval: 1000,
+                // direction = 1 for clockwise, -1 for counterclockwise
+                direction: 1,
+                // number of times to animate the revolution (-1 for infinite)
+                iterations: -1,
+                // startPosition can be a degree angle
+                // (0 = right, 90 = top, 180 = left, 270 = bottom)
+                startPositionDeg: 72,  
+                // how often (in milliseconds) the position of the
+                // circle should be attempted to be updated
+                updateInterval: 50
+            });
+
+            RotateElement.start('moveMe3', {
+                radius: 150,
+                center: { x: 300, y: 400 },
+                // time in milliseconds for one revolution
+                interval: 1000,
+                // direction = 1 for clockwise, -1 for counterclockwise
+                direction: 1,
+                // number of times to animate the revolution (-1 for infinite)
+                iterations: -1,
+                // startPosition can be a degree angle
+                // (0 = right, 90 = top, 180 = left, 270 = bottom)
+                startPositionDeg: 144,
+                // how often (in milliseconds) the position of the
+                // circle should be attempted to be updated
+                updateInterval: 50
+            });
+
+            RotateElement.start('moveMe4', {
+                radius: 150,
+                center: { x: 300, y: 400 },
+                // time in milliseconds for one revolution
+                interval: 1000,
+                // direction = 1 for clockwise, -1 for counterclockwise
+                direction: 1,
+                // number of times to animate the revolution (-1 for infinite)
+                iterations: -1,
+                // startPosition can be a degree angle
+                // (0 = right, 90 = top, 180 = left, 270 = bottom)
+                startPositionDeg: 216,
+                // how often (in milliseconds) the position of the
+                // circle should be attempted to be updated
+                updateInterval: 50
+            });
+
+            RotateElement.start('moveMe5', {
+                radius: 150,
+                center: { x: 300, y: 400 },
+                // time in milliseconds for one revolution
+                interval: 1000,
+                // direction = 1 for clockwise, -1 for counterclockwise
+                direction: 1,
+                // number of times to animate the revolution (-1 for infinite)
+                iterations: -1,
+                // startPosition can be a degree angle
+                // (0 = right, 90 = top, 180 = left, 270 = bottom)
+                startPositionDeg: 288,
+                // how often (in milliseconds) the position of the
+                // circle should be attempted to be updated
+                updateInterval: 50
+            });
+       </script>
+    </body>
+</html>

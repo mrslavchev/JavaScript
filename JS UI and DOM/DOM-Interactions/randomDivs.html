@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Write a script that creates a number of div elements. Each div element must have the following
+          Random width and height between 20px and 100px
+          Random background color
+          Random font color
+          Random position on the screen (position:absolute)
+          A strong element with text "div" inside the div
+          Random border radius
+          Random border color
+          Random border width between 1px and 20px-->
+    </head>
+    <body>
+
+       <script>
+
+       		function generateDivs(){
+       			for (var i = 0; i < 5; i++) {
+       				var newDiv = document.createElement('div');
+       				randomizeDiv(newDiv);
+       				newDiv.innerHTML = '<strong>DIV</strong>';
+       				document.getElementsByTagName('body')[0].appendChild(newDiv);
+       			};
+       		}
+
+       		/*It will be better to split this function in many small functiions to keep the sinle
+       		responsibility principle, but I find it useless to make 5 one line functions, and for the 
+       		sake of the excercise just putted em all in one.*/
+       		function randomizeDiv(div){
+       			var size = getRandomArbitrary(20, 100);
+       			div.style.height = size +'px';
+       			div.style.width = size +'px';
+       			div.style.border = '1px solid black';
+       			div.style.background = getRandomColor();
+       			div.style.color = getRandomColor();
+       			div.style.position = 'absolute';
+       			var verticalPosition = getRandomArbitrary(0, 1000) + 'px';
+       			var horizontalPosition = getRandomArbitrary(0, 1000) + 'px';
+       			div.style.top = verticalPosition;
+       			div.style.left = horizontalPosition;
+       			var borderColor = getRandomColor();
+       			var borderWidth = getRandomArbitrary(1, 20) + 'px';
+       			div.style.border = borderWidth + ' ' + 'solid' + ' ' + borderColor;
+       			var radius = getRandomArbitrary(1, 20) + 'px';
+       			div.style.borderRadius = radius;
+       		}
+
+       		// Returns a random number between min and max
+			function getRandomArbitrary(min, max) {
+  				return Math.floor(Math.random() * (max - min) + min);
+			}
+
+			// Returns random color in hex.	
+			function getRandomColor() {
+    			var letters = '0123456789ABCDEF'.split('');
+    			var color = '#';
+    			for (var i = 0; i < 6; i++ ) {
+        			color += letters[Math.floor(Math.random() * 16)];
+    			}
+    			return color;
+			}
+
+       		generateDivs();
+       </script>
+    </body>
+</html>

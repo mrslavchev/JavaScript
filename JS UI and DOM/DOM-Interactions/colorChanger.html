@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Change colors</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <!--Create a text area and two inputs with type="color"
+    Make the font color of the text area as the value of the first color input
+    Make the background color of the text area as the value of the second input-->
+    <body>
+        <style>
+            label{
+                float:left;
+                clear:both;
+            }
+            input{
+                float:left;
+                clear:right;
+            }
+            textarea{
+                float:left;
+                clear:both;
+            }
+            #fontColor{
+                margin-left:50px;
+            }
+        </style>
+	<label for="bgColor"><strong>Background Color:</strong></label>
+	<input type="color" id="bgColor" onchange="changeColor()">
+	<label for="fontColor"><strong>Font Color:</strong></label>
+	<input type="color" id="fontColor" onchange="changeColor()">
+	<textarea  id="output" cols="30" rows="10"></textarea>
+    <script>
+        function changeColor(){
+            var fontCol = document.getElementById('fontColor').value;
+            var bgCol = document.getElementById('bgColor').value;
+            var textarea = document.getElementById('output');
+            textarea.style.color = fontCol;
+            textarea.style.background = bgCol;
+            console.log(fontCol, bgCol);
+            console.log(document.getElementById('output'));
+        }
+    </script>
+    </body>
+</html>
