@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Create a TODO list with the following UI controls
+			Form input for new Item
+			Button for adding the new Item
+			Button for deleting some item
+			Show and Hide Button-->
+			<style>
+				ul>li{
+					border: 1px solid black;
+					width: 200px;
+                    list-style-type: none;
+				}
+
+				.selected{
+					background: pink;
+				}
+			</style>
+    </head>
+    <body>
+        <div>
+            Click on item to select it than remove button to permanently delete it.
+            Click the Show/Hide button to hide and display list items.
+        </div>
+        <input type="text" id = 'input'>
+        <button id = 'add' onclick = addItem('input')>Add task</button>
+        <button id = 'remove' onclick = removeItems()>Remove task</button>
+        <button id = 'hide' onclick = showHide('taskList')>Show/Hide</button>
+        <ul id="taskList">
+        </ul>
+        <script>
+        	var add = document.getElementById('add');
+        	
+        	function addItem(id){
+        		var input = document.getElementById(id);
+        		var inputValue = input.value;
+        		var parent = document.getElementById('taskList');
+        		var child = document.createElement('li');
+                child.innerHTML = inputValue;
+        		child.setAttribute('onclick', 'this.className = "selected"');
+        		parent.appendChild(child);
+        		removeValue(input);
+        	}
+
+            function removeItems(){
+                var listItems = document.querySelectorAll('li.selected');
+                for (var i = 0; i < listItems.length; i++) {
+                    var node = listItems[i];
+                    node.parentNode.removeChild(node);
+                };
+            }
+
+            function showHide(id){
+                var element = document.getElementById(id);
+                var childNodes = element.childNodes;
+                for (var i = 0; i < childNodes.length; i++) {
+                    if (childNodes[i].nodeName === 'LI' ) {
+                        if (childNodes[i].style.display === '') {
+                            childNodes[i].style.display = 'none';
+                        }
+                        else{
+                            childNodes[i].style.display = '';
+                        }
+                        
+                    }
+                    
+                };
+            }
+
+        	function removeValue(element){
+        		element.value = '';
+        	}
+        </script>
+    </body>
+</html>
