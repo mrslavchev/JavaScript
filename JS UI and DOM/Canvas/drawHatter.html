@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+    	<canvas id="canv" width = '700' height = '500' style="border:1px solid #000;"></canvas>
+    	<script>
+    		var canvas = document.getElementById('canv');
+    		var ctx = canvas.getContext('2d');
+    		// Draw the head.
+    		ctx.arc(350, 300, 100, 5.5, 4); 
+    		ctx.lineWidth = 3;
+    		ctx.fillStyle = '#95cdd9';
+    		ctx.strokeStyle = '#39656e';
+    		ctx.fill();
+    		ctx.closePath();
+    		// Draw the nose.
+    		ctx.moveTo(330, 270);
+    		ctx.lineTo(310, 310);
+    		ctx.lineTo(340, 310);
+    		ctx.fill();
+    		ctx.stroke();
+    		// Draw the mouth.
+    		ctx.moveTo(370, 355);
+    		// params are start.x, start.y, x-radius, y-radius, rotation angle, start, end of elipse
+    		ctx.ellipse(330, 350, 40, 15, 6.5, 0, 2 * Math.PI); // This method is supported only in chrome.
+    		ctx.stroke();
+    		ctx.closePath();
+
+    		// Draw the eyes.
+    		ctx.moveTo(305, 270);
+    		ctx.ellipse(290, 270, 15, 10, 0, 0, 2 * Math.PI);
+    		ctx.stroke();
+    		ctx.closePath();
+    		ctx.beginPath();
+    		ctx.moveTo(290, 270);
+    		ctx.ellipse(285, 270, 5, 10, 0, 0, 2 * Math.PI);
+    		ctx.fillStyle = '#275a65';
+    		ctx.stroke();
+    		ctx.fill();
+    		ctx.closePath();
+    		// Second eye.
+    		ctx.beginPath();
+    		ctx.moveTo(385, 270);
+    		ctx.ellipse(370, 270, 15, 10, 0, 0, 2 * Math.PI);
+    		ctx.stroke();
+    		ctx.closePath();
+    		ctx.beginPath();
+    		ctx.moveTo(370, 270);
+    		ctx.ellipse(365, 270, 5, 10, 0, 0, 2 * Math.PI);
+    		ctx.stroke();
+    		ctx.fill();
+    		ctx.closePath();
+
+    		// Draw the hat.
+    		ctx.beginPath();
+    		ctx.moveTo(480, 210);
+    		ctx.ellipse(360, 210, 120, 30, 0, 0, 2 * Math.PI);
+    		ctx.strokeStyle = '#2b2b2b';
+    		ctx.stroke();
+    		ctx.fillStyle = '#3f6c98';
+    		ctx.fill();
+    		ctx.closePath();
+    		ctx.beginPath();
+    		ctx.moveTo(420, 100);
+    		ctx.lineTo(420, 210);
+    		ctx.moveTo(420, 210);
+    		ctx.ellipse(360, 210, 60, 15,0, 2 * Math.PI, Math.PI);
+    		ctx.lineTo(300, 100);
+    		ctx.ellipse(360, 100, 60, 15, 0, Math.PI, 2 * Math.PI, true);
+    		ctx.closePath();
+    		ctx.stroke();
+    		ctx.fill();
+    		ctx.beginPath();
+    		ctx.ellipse(360, 100, 60, 15,0, 0, 2 * Math.PI, false);
+    		ctx.stroke();
+    		ctx.fill();
+    		ctx.closePath();
+
+    	</script>
+    </body>
+</html>

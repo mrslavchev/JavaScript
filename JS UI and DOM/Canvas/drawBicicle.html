@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+        <canvas id="bicicle" width = '400' height = '300' style="border:1px solid #000000;"></canvas>
+        <script>
+        	var canvas = document.getElementById('bicicle');
+        	var canvasCtx = canvas.getContext('2d');
+
+        	var wheelRadius = 40;
+        	var frontWheel = {
+        		x : 250,
+        		y : 240
+        	};
+
+        	var backWheel = {
+        		x : frontWheel.x - 150,
+        		y : frontWheel.y 
+        	};
+
+        	drawWheel(canvasCtx, frontWheel, wheelRadius);
+        	canvasCtx.closePath();
+        	canvasCtx.moveTo(backWheel.x + wheelRadius, backWheel.y);
+        	drawWheel(canvasCtx, backWheel, wheelRadius);
+        	canvasCtx.beginPath();
+        	canvasCtx.moveTo(backWheel.x, backWheel.y)
+        	canvasCtx.lineTo(175, 235);
+        	canvasCtx.lineTo(240, 190);
+        	canvasCtx.lineTo(140, 200);
+        	canvasCtx.lineTo(backWheel.x, backWheel.y);
+        	canvasCtx.closePath();
+        	//canvasCtx.stroke();
+        	canvasCtx.moveTo(190, 235)
+        	canvasCtx.arc(175, 235, 15, 0, 2*Math.PI);
+        	//canvasCtx.stroke();
+        	canvasCtx.moveTo(175, 235);
+        	canvasCtx.lineTo(120, 180);
+        	canvasCtx.lineTo(100, 180);
+        	canvasCtx.moveTo(120, 180);
+        	canvasCtx.lineTo(140, 180);
+        	canvasCtx.moveTo(frontWheel.x, frontWheel.y);
+        	canvasCtx.lineTo(235, 160);
+        	canvasCtx.lineTo(205, 170);
+        	canvasCtx.moveTo(235, 160);
+        	canvasCtx.lineTo(260, 140);
+        	canvasCtx.moveTo(175, 220);
+        	canvasCtx.lineTo(175, 210);
+        	canvasCtx.moveTo(175, 250);
+        	canvasCtx.lineTo(175, 260);
+        	canvasCtx.stroke();
+
+        	// Drawing wheel.
+        	function drawWheel(context, object, radius){
+        		context.arc(object.x,object.y,radius,0,2*Math.PI);
+        		context.fillStyle = '#95cdd9';
+        		context.strokeStyle = '#398394';
+        		context.fill();
+        		context.stroke();
+        	}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+       <canvas id="canv" width = '700' height = '500' style="border:1px solid #000;"></canvas>
+       <script>
+       	var c = document.getElementById('canv');
+       	var ctx = c.getContext('2d');
+
+        //draw the foundation.
+        ctx.beginPath();
+        ctx.fillStyle = '#9c6161'
+        ctx.lineWidth = 2;
+        ctx.fillRect(200, 300, 250, 200);
+        ctx.strokeRect(200, 300, 250, 200);
+        ctx.closePath();
+
+        // Draw the roof.
+        ctx.beginPath();
+        ctx.moveTo(200, 300);
+        ctx.lineTo(325, 150);
+        ctx.lineTo(450, 300);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        //Draw windows.
+        ctx.beginPath();
+        ctx.moveTo(220, 310);
+        drawWindow(ctx, 220, 330);
+        drawWindow(ctx, 340, 330);
+        drawWindow(ctx, 340, 420);
+        ctx.moveTo(230, 500);
+        ctx.lineTo(230, 430);
+        ctx.ellipse(270, 430, 40, 15, 0, Math.PI, 2 * Math.PI, false); // works only in Chrome.
+        ctx.lineTo(310, 500);
+        ctx.moveTo(270, 415);
+        ctx.lineTo(270, 500);
+        ctx.closePath();
+        ctx.moveTo(262, 470);
+        ctx.arc(260, 470, 2, 0, 2 * Math.PI);
+        ctx.moveTo(282, 470);
+        ctx.arc(280, 470, 2, 0, 2 * Math.PI);
+         ctx.stroke();
+        // Drawing the chimney.
+        ctx.beginPath();
+        ctx.moveTo(370, 250);
+        ctx.lineTo(370, 180);
+        ctx.ellipse(380, 180, 10, 5, 0, Math.PI, 2 * Math.PI, true);
+        ctx.lineTo(390, 250);
+        ctx.stroke();
+        ctx.strokeStyle = '#9c6161';
+        ctx.closePath();
+        ctx.fillStyle = '#9c6161'
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(370, 180);
+        ctx.ellipse(380, 180, 10, 5, 0, 0, 2 * Math.PI, false);
+        ctx.fill();
+        ctx.strokeStyle = '#000';
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.ellipse(380, 180, 10, 5, 0, 0, 2 * Math.PI, false);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        function drawWindow(context, x, y){
+          context.fillStyle = '#000';
+          context.fillRect(x, y, 40, 30);
+          context.fillRect(x + 43, y, 40, 30);
+          context.fillRect(x, y + 33, 40, 30);
+          context.fillRect(x + 43, y + 33, 40, 30);
+        }
+       </script>
+    </body>
+</html>
