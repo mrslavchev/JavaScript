@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Table of students</title>
+    <!--By given an array of students, generate a table that 
+    represents these students
+     Each student has first name,
+    last name and grade
+     Use jQuery-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        th, td, table {
+            border: 1px solid black;     
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <table id="students-list">
+            <tr>
+                <th>First name</th> 
+                <th>Last name</th>
+                <th>Age</th>
+            </tr>
+
+            <script>
+                var students = [
+                    { firstName: "Peter", lastName: "Ivanov", age: 3 },
+                    { firstName: "Milena", lastName: "Grigorova", age: 6 },
+                    { firstName: "Gergana", lastName: "Borisova", age: 12 },
+                    { firstName: "Boiko", lastName: "Petrov", age: 17 },
+                ]
+
+                $.each(students, function () {
+                    var row = '<tr><td>' + this.firstName + '</td><td>' + this.lastName + '</td><td>'
+                    + this.age + '</td></tr>';
+                    $('#students-list').append(row);
+                })
+            </script>
+        </table>
+    </div>
+</body>
+</html>

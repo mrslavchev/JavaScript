@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Insert element task</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--Using jQuery implement functionality to insert a DOM element before or after another element-->
+    <div id="container">
+        <button type="button" id="before">Before</button>
+        <button type="button" id="after">After</button>
+        <ul id="list">
+            <li id="list-item">Some item</li>
+        </ul>
+    </div>
+    <script>
+        $('#before').click(function () {
+            $('#list-item').before('<li>Before</li>');
+        });
+
+        $('#after').click(function () {
+            $('#list-item').after('<li>After</li>');
+        });
+    </script>
+</body>
+</html>

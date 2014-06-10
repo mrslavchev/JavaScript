@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Color picker</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--Implement functionality to change the background color of a web page-->
+    <input type="color" id="picker"/>
+    <script>
+        $('#picker').change(function () {
+            $('body').css('background-color', this.value);
+        })
+
+    </script>
+</body>
+</html>

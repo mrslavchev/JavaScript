@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<head>
+    <style>
+        /* Prevents slides from flashing */
+        #slides {
+            display: none;
+            width:400px;
+            height:300px;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="jquery.slides.min.js"></script>
+    <script>
+    $(function(){
+      $("#slides").slidesjs({
+        width: 300,
+        height: 150,
+        play: {
+            active: true,
+            // [boolean] Generate the play and stop buttons.
+            // You cannot use your own buttons. Sorry.
+            effect: "slide",
+            // [string] Can be either "slide" or "fade".
+            interval: 5000,
+            // [number] Time spent on each slide in milliseconds.
+            auto: false,
+            // [boolean] Start playing the slideshow on load.
+            swap: true,
+            // [boolean] show/hide stop and play buttons
+            pauseOnHover: false,
+            // [boolean] pause a playing slideshow on hover
+            restartDelay: 2500
+            // [number] restart delay on inactive slideshow
+        },
+          navigation: {
+          active: true,
+              // [boolean] Generates next and previous buttons.
+              // You can set to false and use your own buttons.
+              // User defined buttons must have the following:
+              // previous button: class="slidesjs-previous slidesjs-navigation"
+              // next button: class="slidesjs-next slidesjs-navigation"
+          effect: "slide"
+              // [string] Can be either "slide" or "fade".
+      }
+      });
+    });
+    </script>
+</head>
+<body>
+    <div id="slides">
+        <div>
+            <h1>Hi there</h1>
+            <h2>This is heading.</h2>
+        </div>
+        <div>
+            <strong>This is form</strong>
+            <form action="/" method="post">
+                <label>Login</label>
+                <input type="text" name="name" value=" " />
+                <label>Password</label>
+                <input type="text" name="name" value=" " />
+                <input type="submit" name="name" value="Submit" />
+                <input type="reset" name="name" value="Reset" />
+            </form>
+        </div>
+        <div>
+            This is text:
+            Lorem ipsum yada yada yada, bulshit, bulshit I hate this.
+        </div>
+        <img src="/pictures/panda1.jpg">
+        <img src="/pictures/panda2.jpg">
+        <img src="/pictures/panda3.jpg">
+
+    </div>
+</body>
