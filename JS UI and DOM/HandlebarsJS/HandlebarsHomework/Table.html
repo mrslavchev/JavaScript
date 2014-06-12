@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handlebars.js demos: Creating templates</title>
+    <style>
+        table, td, th {
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/x-handlebars-template" id="post-template">
+        <div class='post' data-id='{{id}}'>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Title</th>
+                    <th>Date#1</th>
+                    <th>Date#2</th>
+                </tr>
+                {{#each this}}
+                <tr>
+                    <td>{{number}}</td>
+                    <td>{{title}}</td>
+                    <td>{{date1}}</td>
+                    <td>{{date2}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </script>
+    <script src="handlebars-v1.3.0.js"></script>
+    <script>
+        var post,
+            postTemplateHTML,
+            postTemplate;
+        post = [
+            { number: 1, title: 'JavaScript', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 2, title: 'Java', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 3, title: 'C#', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 4, title: 'C++', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 5, title: 'Php', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 6, title: 'Linux administration', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 7, title: 'JQuery', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 8, title: 'Handlebars', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+            { number: 9, title: 'AngularJS', date1: 'June, 2, 2014', date2: 'June, 3, 2014' },
+        ];
+
+        postTemplateHTML = document.getElementById('post-template').innerHTML;
+
+        postTemplate = Handlebars.compile(postTemplateHTML);
+
+        document.getElementById('root').innerHTML = postTemplate(post);
+
+
+    </script>
+</body>
+</html>
