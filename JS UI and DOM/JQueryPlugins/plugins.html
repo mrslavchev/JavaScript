@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <title>Dynamic select</title>
+       
+    </head>
+    <body>
+		<select id="dropdown">
+			<option value="1">One</option>
+			<option value="2">Two</option>
+			<option value="3">Three</option>
+			<option value="4">Four</option>
+			<option value="5">Five</option>
+		</select>
+
+		<script>
+			(function ($) {
+    			$.fn.dropdown = function () {
+        			var $this = $(this);
+        			$this.hide();
+
+        			var $generatedDropdown = $('<div></div>').addClass('dropdown-list-container');
+        			var $generatedList = $('<ul></ul>').addClass('dropdown-list-options');
+        			var $options = $this.find('option');
+
+        			for (var i = 0; i < $options.length; i++) {
+            			var $currentOption = $options[i];
+            			var currentOptionValue = $currentOption.value;
+            			var currentOptionText = $currentOption.innerHTML;
+            			var $generatedListItem = $('<li></li>')
+                                .addClass('dropdown-list-option')
+                                .html(currentOptionText)
+                                .data('data-value', currentOptionValue);
+            			$generatedList.append($generatedListItem);
+        			};
+
+        			$generatedDropdown.append($generatedList);
+
+        			$this.after($generatedDropdown);
+
+        			var generatedLiElements = $generatedDropdown.find('.dropdown-list-option');
+
+        			$(".dropdown-list-option").on("click", function () {
+            			var data = $(this).data('data-value');
+            			var selector = 'option[value=\'' + data + '\']';
+
+            			if ($('#dropdown').find(selector).attr('selected') == 'selected') {
+                			$('#dropdown').find(selector).removeAttr('selected', '')
+                			$(this).css('background-color', '')
+            			}
+            			else {
+                			$('#dropdown').find(selector).attr('selected', 'selected')
+                			$(this).css('background-color', 'red')
+            			}
+        			});
+
+        		return $this;
+    			}
+			}(jQuery));
+
+			$('#dropdown').dropdown();
+		</script>
+    </body>
+</html>

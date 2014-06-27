@@ -63,10 +63,10 @@ var domModule = (function(){
 })();
 //Uncomment the following to test functionalities
 
-//domModule.addChild('#wrapper', 'div', 'This is made by domModule <--');
-//domModule.removeElement('li:first-child');
-//domModule.addEvent('a.button', 'click', function(){alert('Clicked by domModule')}); 
-//var i;
-//for (var i = 0; i <= 100; i++) {
-	//domModule.appendToBuffer('#wrapper', 'div', 'background:blue', 'I came from buffer!');
-//};
+domModule.addChild('#wrapper', 'div', 'This is made by domModule <--');
+domModule.removeElement('li:first-child');
+domModule.addEvent('a.button', 'click', function(){alert('Clicked by domModule')}); 
+var i;
+for (var i = 0; i <= 100; i++) {
+	domModule.appendToBuffer('#wrapper', 'div', 'background:blue', 'I came from buffer!');
+};
