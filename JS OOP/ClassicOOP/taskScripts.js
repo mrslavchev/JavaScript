@@ -8,34 +8,38 @@ Line, by given from (X1, Y1) and to (X2, Y2) positions
 */
 
 // Object initialization.
-function Shape(context, xCoord, yCoord){
-	this.context = context;
-	this.xCoord = xCoord;
-	this.yCoord = yCoord;
-}
+var Shape = (function (){
+	function Shape(context, xCoord, yCoord){
+		this.context = context;
+		this.xCoord = xCoord;
+		this.yCoord = yCoord;
+	}
 
-// Method declarations.
-Shape.prototype.drawRectangle = function(width, height) {
-	this.context.strokeRect(this.xCoord, this.yCoord, width, height); 
-};
+	// Method declarations.
+	Shape.prototype.drawRectangle = function(width, height) {
+		this.context.strokeRect(this.xCoord, this.yCoord, width, height); 
+	};
 
-Shape.prototype.drawCircle = function(radius){
+	Shape.prototype.drawCircle = function(radius){
 	var ctx = this.context;
 	ctx.beginPath();
 	ctx.moveTo(this.xCoord + radius, this.yCoord);
 	ctx.arc(this.xCoord,this.yCoord,radius,0,2*Math.PI);
 	ctx.stroke();
 	ctx.closePath();
-};
+	};
 
-Shape.prototype.drawLine = function(destXCoord, destYCoord) {
-	var ctx = this.context;
-	ctx.beginPath();
-	ctx.moveTo(this.xCoord, this.yCoord);
-	ctx.lineTo(destXCoord, destYCoord);
-	ctx.stroke();
-	ctx.closePath();
-};
+	Shape.prototype.drawLine = function(destXCoord, destYCoord) {
+		var ctx = this.context;
+		ctx.beginPath();
+		ctx.moveTo(this.xCoord, this.yCoord);
+		ctx.lineTo(destXCoord, destYCoord);
+		ctx.stroke();
+		ctx.closePath();
+	};
+
+return Shape;
+}());
 
 // Context declaration.
 var c = document.getElementById('canv');
