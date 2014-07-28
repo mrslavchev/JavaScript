@@ -1,0 +1,42 @@
+#main{
+	border:2px solid black;
+	width:800px;
+	height: 500px;	
+	overflow-y: scroll;
+	overflow-x:none;
+}
+
+.user, label{
+	color: blue;
+	font-weight: bold;
+}
+
+.message{
+	border: 1px solid black;
+	padding: 5px;
+	margin: 5px;
+	width: 70%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:#B8FF70;
+}
+
+.content{
+	word-wrap: break-word;
+}
+
+#chatwindow{
+	border: 2px solid black;
+	width: 450px;
+	position: absolute;
+	top: 100px;
+	left: 850px;
+	display: inline-block;
+
+}
+
+input, textarea{
+	margin:5px;
+	width:430px;
+}

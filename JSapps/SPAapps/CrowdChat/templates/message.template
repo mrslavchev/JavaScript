@@ -1,0 +1,9 @@
+<div class="message">
+	<div>
+		<strong>Username: </strong><span class = 'user'><%= item.by %></span>
+	</div>
+	<div class="content">
+		<strong>Message: </strong>
+		<%= item.text %>
+	</div>
+</div>
